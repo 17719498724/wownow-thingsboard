@@ -371,14 +371,15 @@ ThingsBoard CE:
 路径: D:/program/thingsboard-custom/thingsboard
 分支: custom/wownow-max-4.3.0.1
 基线版本: v4.3.0.1
-当前提交: 9978bff
+初始化源码快照提交: 9978bff
+最新提交: 以 `git log -1 --oneline` 和远程分支为准
 远程仓库: https://github.com/17719498724/wownow-thingsboard.git
 远程分支: custom/wownow-max-4.3.0.1
 
 Flutter ThingsBoard App:
 路径: D:/program/thingsboard-custom/flutter_thingsboard_app
 分支: custom/wownow-max-android
-提交: 63bc934
+当前提交: 63bc934
 远程仓库: https://github.com/17719498724/wownow-thingsboard-app.git
 远程分支: custom/wownow-max-android
 ```
@@ -428,7 +429,8 @@ PC / 后端 / Web 仓库：
 本地路径: D:/program/thingsboard-custom/thingsboard
 远程仓库: https://github.com/17719498724/wownow-thingsboard.git
 推送分支: custom/wownow-max-4.3.0.1
-远程提交: 9978bff3b50d9a5838e9c0fa31bea2f5f5972254
+初始化源码快照提交: 9978bff3b50d9a5838e9c0fa31bea2f5f5972254
+最新远程提交: 使用 `git ls-remote` 查询
 ```
 
 说明：由于本地 ThingsBoard 是从 tag `v4.3.0.1` 浅克隆得到，直接推送到空 GitHub 仓库时发生缺少历史对象错误。因此 PC 仓库采用“源码快照初始提交”的方式推送，完整包含当前源码内容和 `docs/thingsboard-4.3.0.1二开实施文档.md`，但不携带官方 ThingsBoard 历史提交。官方源仍保留为 `upstream`。
@@ -739,7 +741,7 @@ git ls-remote https://github.com/17719498724/wownow-thingsboard.git refs/heads/c
 git ls-remote https://github.com/17719498724/wownow-thingsboard-app.git refs/heads/custom/wownow-max-android
 ```
 
-验证结果：
+初次验证结果：
 
 ```txt
 9978bff3b50d9a5838e9c0fa31bea2f5f5972254 refs/heads/custom/wownow-max-4.3.0.1
