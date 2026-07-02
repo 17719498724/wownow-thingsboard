@@ -370,13 +370,17 @@ Remove-Item -LiteralPath "$env:LOCALAPPDATA\Android\Sdk\platforms\android-36.1" 
 ThingsBoard CE:
 路径: D:/program/thingsboard-custom/thingsboard
 分支: custom/wownow-max-4.3.0.1
-版本: v4.3.0.1
-提交: 94ed115
+基线版本: v4.3.0.1
+当前提交: 9978bff
+远程仓库: https://github.com/17719498724/wownow-thingsboard.git
+远程分支: custom/wownow-max-4.3.0.1
 
 Flutter ThingsBoard App:
 路径: D:/program/thingsboard-custom/flutter_thingsboard_app
 分支: custom/wownow-max-android
 提交: 63bc934
+远程仓库: https://github.com/17719498724/wownow-thingsboard-app.git
+远程分支: custom/wownow-max-android
 ```
 
 软件状态：
@@ -415,6 +419,30 @@ Visual Studio 未安装，仅影响 Windows 桌面应用开发，不影响 Andro
 4. 在 Android Studio 的 SDK Manager 安装 `Android SDK Command-line Tools (latest)`。
 5. 重新打开命令行，执行 `flutter doctor --android-licenses`。
 6. 在移动端项目执行 `flutter pub get`。
+
+### 代码仓库推送状态
+
+PC / 后端 / Web 仓库：
+
+```txt
+本地路径: D:/program/thingsboard-custom/thingsboard
+远程仓库: https://github.com/17719498724/wownow-thingsboard.git
+推送分支: custom/wownow-max-4.3.0.1
+远程提交: 9978bff3b50d9a5838e9c0fa31bea2f5f5972254
+```
+
+说明：由于本地 ThingsBoard 是从 tag `v4.3.0.1` 浅克隆得到，直接推送到空 GitHub 仓库时发生缺少历史对象错误。因此 PC 仓库采用“源码快照初始提交”的方式推送，完整包含当前源码内容和 `docs/thingsboard-4.3.0.1二开实施文档.md`，但不携带官方 ThingsBoard 历史提交。官方源仍保留为 `upstream`。
+
+移动端 App 仓库：
+
+```txt
+本地路径: D:/program/thingsboard-custom/flutter_thingsboard_app
+远程仓库: https://github.com/17719498724/wownow-thingsboard-app.git
+推送分支: custom/wownow-max-android
+远程提交: 63bc93420c87188352a27e5d87fce04a222e9e42
+```
+
+移动端 App 仓库保留官方 Flutter App 历史，官方源保留为 `upstream`。
 
 检查环境：
 
@@ -689,3 +717,38 @@ D:/program/thingsboard-custom/flutter_thingsboard_app/.fvmrc
 影响范围：本地开发环境、移动端运行和打包、后端构建。  
 验证方式：执行 Git、Flutter Doctor、Java、Maven、Node、Android SDK 目录检查。  
 相关文件：无源码文件变更。
+
+### 2026-07-02
+
+修改人：Codex / 4393  
+模块：代码仓库推送  
+改动内容：
+
+1. 将移动端 App 仓库 `origin` 设置为 `https://github.com/17719498724/wownow-thingsboard-app.git`。
+2. 将移动端分支 `custom/wownow-max-android` 推送到远程仓库。
+3. 将 PC / 后端 / Web 仓库 `origin` 设置为 `https://github.com/17719498724/wownow-thingsboard.git`。
+4. PC 仓库因浅克隆历史对象缺失，改用源码快照初始提交方式推送。
+5. 将 PC 分支 `custom/wownow-max-4.3.0.1` 推送到远程仓库。
+6. PC 仓库保留官方 ThingsBoard 源为 `upstream`，移动端仓库保留官方 Flutter App 源为 `upstream`。
+
+影响范围：远程代码托管、后续协作开发、二开分支管理。  
+验证方式：
+
+```bash
+git ls-remote https://github.com/17719498724/wownow-thingsboard.git refs/heads/custom/wownow-max-4.3.0.1
+git ls-remote https://github.com/17719498724/wownow-thingsboard-app.git refs/heads/custom/wownow-max-android
+```
+
+验证结果：
+
+```txt
+9978bff3b50d9a5838e9c0fa31bea2f5f5972254 refs/heads/custom/wownow-max-4.3.0.1
+63bc93420c87188352a27e5d87fce04a222e9e42 refs/heads/custom/wownow-max-android
+```
+
+相关文件：
+
+```txt
+D:/program/thingsboard-custom/thingsboard/docs/thingsboard-4.3.0.1二开实施文档.md
+C:/Users/4393/Documents/Codex/2026-06-30/can/outputs/thingsboard-4.3.0.1二开实施文档.md
+```
